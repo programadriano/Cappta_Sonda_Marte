@@ -1,0 +1,104 @@
+<style>
+    .toolbar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        background-color: #1976d2;
+        color: white;
+        font-weight: 600;
+    }
+
+    .content {
+        margin: 82px auto 32px;
+        padding: 0 16px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form {
+        border: 1px solid silver;
+        padding: 20px;
+    }
+
+    img {
+        max-width: 480px;
+    }
+
+    .result {
+        border: 1px solid silver;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .coordenadasSondaTexto {
+        font-weight: bold;
+    }
+</style>
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+
+</div>
+
+<div class="content container" role="main">
+    <div class="row">
+        <div class="col">
+            <form>
+                <div class="form-group">
+                    <label for="email">Digite as coordenadas da primeira Sonda:</label>
+                    <input type="text" [(ngModel)]="sonda[0].coordenadas" class="form-control" placeholder="Ex.: 9 9 X"
+                        name="email">
+                </div>
+                <div class="form-group">
+                    <label for="email">Envie as intruções de movimento para primeira Sonda:</label>
+                    <input type="text" [(ngModel)]="sonda[0].movimentos" class="form-control"
+                        placeholder="Ex.: LMLMLMLMM" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="email">Digite as coordenadas da segunda Sonda:</label>
+                    <input type="text" [(ngModel)]="sonda[1].coordenadas" class="form-control" placeholder="Ex.: 9 9 X"
+                        name="email">
+                </div>
+                <div class="form-group">
+                    <label for="email">Envie as intruções de movimento para segunda Sonda:</label>
+                    <input type="text" [(ngModel)]="sonda[1].movimentos" class="form-control"
+                        placeholder="Ex.: LMLMLMLMM" name="email">
+                </div>
+
+                <button type="button" (click)="monvimentar()" class="btn btn-success">Enviar coordenadas</button>
+            </form>
+        </div>
+        <div class="col result">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span>coordenada final sonda 1: <span
+                            class="coordenadasSondaTexto">{{coordenadaSonda1}}</span></span>
+                    <div style="width:230px;height:20px;text-align:center;clear:both;">X</div>
+                    <div style="width:20px;padding-top:40px;float:left;">Y</div>
+                    <canvas id="sonda1" width="200" height="100" style="border:1px solid #d3d3d3;">
+                        Your browser does not support the canvas element.
+                    </canvas>
+                </div>
+                <div class="col-sm-6">
+                    <span>coordenada final sonda 2: <span
+                            class="coordenadasSondaTexto">{{coordenadaSonda2}}</span></span>
+                    <div style="width:230px;height:20px;text-align:center;clear:both;">X</div>
+                    <div style="width:20px;padding-top:40px;float:left;">Y</div>
+                    <canvas id="sonda2" width="200" height="100" style="border:1px solid #d3d3d3;">
+                        Your browser does not support the canvas element.
+                    </canvas>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 *ngIf="condition">Enviando...</h4>
+                    <img [src]="comandos">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
