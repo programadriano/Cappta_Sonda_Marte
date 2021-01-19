@@ -23,7 +23,8 @@ namespace Sonda.Servicos
             {             
                 var movimento = movimentos.Substring(i, 1);
 
-                Helper.ValidaCoordenadas(posicao.Substring(4, 1), movimento);
+                Helper.ValidaCoordenadas(posicao);
+                Helper.ValidaMovimento(movimento);
 
                 posicao = movimento != "M" ? AlinharPosicao(posicao, movimento) : AlterarPosicao(posicao);
 

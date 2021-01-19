@@ -8,6 +8,10 @@ namespace Sonda.Api.Infra
 {
     class Helper
     {
+        /// <summary>
+        /// Método desenvolvido para validar a direção enviada pelo usuário
+        /// </summary>
+        /// <param name="direcao"></param>
         public static void ValidaMovimento(string direcao)
         {
 
@@ -19,7 +23,10 @@ namespace Sonda.Api.Infra
             }
         }
 
-
+        /// <summary>
+        /// Método desenvolvido para validar as coordenadas enviadas pelo usuário
+        /// </summary>
+        /// <param name="posicao"></param>
         public static void ValidaCoordenadas(string posicao)
         {
 
